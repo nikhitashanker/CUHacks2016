@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="nikhi.mysecondapplication.WaterActivity$PlaceholderFragment">
+
+    <TextView
+        android:id="@+id/section_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <ExpandableListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/expandableCategoriesListView"
+            android:dividerHeight="10dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/holo_blue_light"
+            android:cacheColorHint="@color/abc_primary_text_disable_only_material_dark"
+            android:backgroundTint="@color/material_deep_teal_200"
+            android:choiceMode="singleChoice"
+            android:clickable="false"
+            android:drawSelectorOnTop="false"
+            android:indicatorLeft="@dimen/abc_action_bar_overflow_padding_start_material"
+            android:divider="@android:color/white" />
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="205dp" />
+
+</RelativeLayout>

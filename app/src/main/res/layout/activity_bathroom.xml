@@ -35,11 +35,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="Number of minutes in the shower"
+        android:hint="Number of minutes in the faucet"
         android:ems="10"
         android:id="@+id/editTextFaucet"
-        android:layout_gravity="center_horizontal"
-        android:visibility="invisible"/>
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="match_parent"
@@ -54,6 +53,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
+        android:hint="Number of minutes in the bath"
         android:id="@+id/editTextBath"
         android:layout_gravity="center_horizontal" />
 
@@ -70,6 +70,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
+        android:hint="Number of flushes"
         android:id="@+id/editTextToilet"
         android:layout_gravity="center_horizontal"
         android:visibility="invisible"/>

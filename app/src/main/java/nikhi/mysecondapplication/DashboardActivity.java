@@ -92,7 +92,7 @@ public class DashboardActivity extends Activity {
 
     public void newUserScreen (View view)
     {
-        Intent startUserActivity = new Intent (this,MainActivity.class);
+        Intent startUserActivity = new Intent (this, MainActivity.class);
         startActivity(startUserActivity);
     }
 }

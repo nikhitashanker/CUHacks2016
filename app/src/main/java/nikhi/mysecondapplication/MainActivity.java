@@ -44,25 +44,8 @@ public class MainActivity extends AppCompatActivity {
        ref = new Firebase("https://project-6970500224315768028.firebaseio.com/");
 
 
-        
-        //if (accountCreated == false) {
-            accountCreated = true;
-            create.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    System.out.println("Hi");
 
 
-
-                    email_str = email.getText().toString();
-                    pass_str = password.getText().toString();
-
-                    myRef.child("users").setValue(email_str + " " + pass_str);
-                    //ref.authWithPassword(email_str, pass_str, new Firebase.ValueResultHandler<Map<String, Object>>()
-                    
-
-                }
-            });
         //}
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.

@@ -13,7 +13,7 @@ import android.widget.EditText;
 
 public class LaundryActivity extends Activity {
     static String TAG = "Showering Activity";
-    EditText edit2;
+    EditText editText = (EditText) findViewById(R.id.editText2);
     int load;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class LaundryActivity extends Activity {
             }
         });
 
-        edit2 = (EditText) (findViewById(R.id.editTextLaundry));
+        editText = (EditText) (findViewById(R.id.editTextLaundry));
 
         Button btn3 = (Button)(findViewById(R.id.dashboard));
         btn3.setOnClickListener(new View.OnClickListener() {
@@ -43,9 +43,11 @@ public class LaundryActivity extends Activity {
 
     }
 
-    public void newLoad (View view){
-        edit2.setVisibility(EditText.VISIBLE);
-        load = Integer.parseInt(edit2.getText().toString());
+
+
+        public void newLoad (View view){
+        editText.setVisibility(EditText.VISIBLE);
+        load = Integer.parseInt(editText.getText().toString());
     }
 
 

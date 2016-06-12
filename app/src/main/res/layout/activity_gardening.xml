@@ -20,11 +20,10 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:text="number of square feet"
+        android:hint="number of square feet"
         android:id="@+id/sqFeet"
         android:layout_gravity="center_horizontal"
-        android:background="#ffffff"
-        android:visibility="invisible"/>
+        android:background="#ffffff" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gallons Used"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/accent_material_dark" />
+
+    <Button
+        android:layout_width="402dp"
+        android:layout_height="wrap_content"
+        android:text="Gallons Remaining"
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/accent_material_dark" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log Water"
+        android:id="@+id/button3"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/accent_material_dark" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:layout_row="19"
+            android:layout_column="22"
+            android:weightSum="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Dashboard"
+                android:id="@+id/button6"
+                android:layout_weight="0.04"
+                android:backgroundTint="#a1f8fb" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="114dp"
+                android:text="Challenges"
+                android:id="@+id/button7"
+                android:layout_weight="0.04"
+                android:backgroundTint="#a9fdf9" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="105dp"
+                android:text="Account"
+                android:id="@+id/button8"
+                android:layout_weight="0.42"
+                android:backgroundTint="#a9fcfc" />
+        </LinearLayout>
+    </GridLayout>
+
+</LinearLayout>

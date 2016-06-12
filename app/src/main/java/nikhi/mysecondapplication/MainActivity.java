@@ -1,14 +1,8 @@
 package nikhi.mysecondapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,29 +13,39 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
     static String TAG = "Main Activity";
     DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
+    
     EditText email;
     String email_str = "";
     String pass_str = "";
     EditText password;
     Button create;
+    boolean accountCreated = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("myRef", myRef.toString());
         Log.i(TAG, "Application is running");
         email = (EditText) findViewById(R.id.editText_email);
         password = (EditText) findViewById(R.id.editText_password);
         create = (Button) findViewById(R.id.button_caccount);
-        create.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                email_str = email.getText().toString();
-                pass_str = password.getText().toString();
-                myRef.push().setValue(email_str);
-                Log.d("hi", email_str);
-                myRef.child(email_str).setValue(pass_str);
-            }
-        });
+        
+       
+        
+        if (accountCreated == false) {
+            accountCreated = true;
+            create.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    
+                    email_str = email.getText().toString();
+                    pass_str = password.getText().toString();
+                    myRef.push().setValue(email_str);
+                    Log.d("hi", email_str);
+                    myRef.child(email_str).setValue(pass_str);
+                }
+            });
+        }
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         //GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -53,12 +57,13 @@ public class MainActivity extends AppCompatActivity {
                 //.enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 //.addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 //.build();
-
         
-
+        
+/**
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,5 +108,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    */
     }
+    
 }

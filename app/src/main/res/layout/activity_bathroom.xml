@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Showering"
+        android:id="@+id/showering"
+        android:layout_gravity="center_horizontal"
+        android:background="#b1deea" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:hint="Number of minutes in the shower"
+        android:id="@+id/editTextShower"
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Faucet"
+        android:id="@+id/faucet"
+        android:layout_gravity="center_horizontal"
+        android:background="#b1deea" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Number of minutes in the shower"
+        android:ems="10"
+        android:id="@+id/editTextFaucet"
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bath"
+        android:id="@+id/bath"
+        android:layout_gravity="center_horizontal"
+        android:background="#b1deea" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextBath"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toilet"
+        android:id="@+id/toilet"
+        android:layout_gravity="center_horizontal"
+        android:background="#b1deea" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextToilet"
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:id="@+id/dashboard"
+        android:layout_gravity="center_horizontal"
+        android:background="#b1deea" />
+
+
+</LinearLayout>

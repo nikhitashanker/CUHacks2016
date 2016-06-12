@@ -9,53 +9,51 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 
-public class WaterDisplayActivity extends Activity {
-    static String TAG = "Dashboard Activity";
-    TextView text;
-
+public class LaundryActivity extends Activity {
+    static String TAG = "Showering Activity";
+    EditText edit2;
+    int load;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_laundry);
         Log.i(TAG, "Application is running");
 
-        Button btn1 = (Button)(findViewById(R.id.buttonGallonUsed));
+        Button btn1 = (Button)(findViewById(R.id.laundry));
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Button was clicked");
-                newDisplayScreen(v);
+                newLoad(v);
             }
         });
 
-        text = (TextView)(findViewById(R.id.textView2));
+        edit2 = (EditText) (findViewById(R.id.editTextLaundry));
 
-        Button btn3 = (Button)(findViewById(R.id.buttonDashboard));
+        Button btn3 = (Button)(findViewById(R.id.dashboard));
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "Button was clicked");
-                newDashboardScreen(v);
+                newScreen(v);
             }
         });
 
+    }
 
-
+    public void newLoad (View view){
+        edit2.setVisibility(EditText.VISIBLE);
+        load = Integer.parseInt(edit2.getText().toString());
     }
 
 
-    public void newDisplayScreen (View view)
-    {
-        text.setVisibility(TextView.VISIBLE);
-    }
 
-    public void newDashboardScreen (View view)
+    public void newScreen (View view)
     {
-        Intent startNewActivity = new Intent (this, DashboardActivity.class);
+        Intent startNewActivity = new Intent(this, DashboardActivity.class);
         startActivity(startNewActivity);
     }
-
-
 }
+

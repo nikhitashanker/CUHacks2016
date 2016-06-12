@@ -14,11 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     static String TAG = "Main Activity";
@@ -36,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         myRef = FirebaseDatabase.getInstance().getReference();
-        myRef.child("users").setValue("bob");
+
         setContentView(R.layout.activity_main);
         Log.d("myRef", myRef.toString());
         Log.i(TAG, "Application is running");
@@ -56,16 +53,11 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println("Hi");
 
 
+
                     email_str = email.getText().toString();
                     pass_str = password.getText().toString();
-                    ref.createUser(email_str, pass_str, new Firebase.ValueResultHandler<Map<String, Object>>() {
-                        @Override
-                        public void onSuccess(Map<String, Object> result) {
-                        }
-                        @Override
-                        public void onError(FirebaseError firebaseError) {
-                        }
-                    });
+
+                    myRef.child("users").setValue(email_str + " " + pass_str);
                     //ref.authWithPassword(email_str, pass_str, new Firebase.ValueResultHandler<Map<String, Object>>()
                     
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e4fefd">
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Watering Lawn"
+        android:id="@+id/wateringLawn"
+        android:layout_gravity="center_horizontal"
+        android:background="#b4e1ef"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:text="number of square feet"
+        android:id="@+id/sqFeet"
+        android:layout_gravity="center_horizontal"
+        android:background="#ffffff"
+        android:visibility="invisible"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:id="@+id/dashboard"
+        android:layout_gravity="center_horizontal"
+        android:background="#b4e1ef"
+        />
+
+</LinearLayout>

@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:backgroundTint="#a8d7f1"
+    android:baselineAligned="true"
+    android:background="#cff5f4">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gallons Used"
+        android:id="@+id/buttonGallonUsed"
+        android:backgroundTint="@color/accent_material_dark" />
+
+    <TextView
+        android:layout_width="404dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="invisible"
+        android:id="@+id/textView2"
+        android:layout_weight="0.24" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"></LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:id="@+id/buttonDashboard"
+        android:layout_gravity="center_horizontal"
+        android:background="#d0faf8" />
 </LinearLayout>

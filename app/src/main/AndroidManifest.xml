@@ -25,7 +25,39 @@
             android:label="@string/title_activity_water"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".BathroomActivity"
+            android:label="@string/title_activity_water"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChallengeActivity"
+            android:label="@string/title_activity_water"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DashboardActivity"
+            android:label="@string/title_activity_water"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GardeningActivity"
+            android:label="@string/title_activity_water"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LaundryActivity"
+            android:label="@string/title_activity_water"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ShoweringActivity"
+            android:label="@string/title_activity_water"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserActivity"
+            android:label="@string/title_activity_water"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WaterActivity"
+            android:label="@string/title_activity_water"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WaterDisplayActivity"
             android:label="@string/title_activity_water"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

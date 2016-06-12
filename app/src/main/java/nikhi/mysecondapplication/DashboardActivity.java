@@ -75,6 +75,7 @@ public class DashboardActivity extends Activity {
     public void newWaterDisplayScreen (View view)
     {
         Intent startNewActivity = new Intent(this,WaterDisplayActivity.class);
+        startActivity(startNewActivity);
     }
 
     public void newDashboardScreen (View view)

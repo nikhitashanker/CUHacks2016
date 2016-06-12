@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4feff">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Laundry"
+        android:id="@+id/laundry"
+        android:layout_gravity="center_horizontal"
+        android:background="#c8eff4" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:text="number of loads"
+        android:id="@+id/editTextLaundry"
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:id="@+id/dashboard"
+        android:layout_gravity="center_horizontal"
+        android:background="#c8eff4" />
+</LinearLayout>

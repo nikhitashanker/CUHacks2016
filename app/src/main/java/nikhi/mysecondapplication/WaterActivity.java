@@ -47,6 +47,18 @@ public class WaterActivity extends Activity {
                 Toast.makeText(getApplicationContext(),
                 "Group Clicked " + listDataHeader.get(groupPosition),
                 Toast.LENGTH_SHORT).show();
+                if (groupPosition == 0) {
+                    userScreen(v);
+                }
+                if (groupPosition == 1) {
+                    gardeningScreen(v);
+                }
+                if (groupPosition == 2) {
+                    bathroomActivity(v);
+                }
+                if (groupPosition == 3) {
+                    bathroomActivity(v);
+                }
                 return false;
             }
         });
@@ -59,6 +71,7 @@ public class WaterActivity extends Activity {
                 Toast.makeText(getApplicationContext(),
                         listDataHeader.get(groupPosition) + " Expanded",
                         Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -71,6 +84,7 @@ public class WaterActivity extends Activity {
                         listDataHeader.get(groupPosition) + " Collapsed",
                         Toast.LENGTH_SHORT).show();
 
+
             }
         });
 
@@ -81,9 +95,7 @@ public class WaterActivity extends Activity {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
                 // TODO Auto-generated method stub
-                if (groupPosition == 0) {
-                    newScreenShowering(v);
-                }
+
                 Toast.makeText(
                         getApplicationContext(),
                         listDataHeader.get(groupPosition)
@@ -97,8 +109,16 @@ public class WaterActivity extends Activity {
         });
     }
 
-    public void newScreenShowering(View view){
-        Intent startNewActivity = new Intent(this, ShoweringActivity.class);
+    public void userScreen(View view){
+        Intent startNewActivity = new Intent(this, UserActivity.class);
+        startActivity(startNewActivity);
+    }
+    public void gardeningScreen(View view){
+        Intent startNewActivity = new Intent(this, GardeningActivity.class);
+        startActivity(startNewActivity);
+    }
+    public void bathroomActivity(View view){
+        Intent startNewActivity = new Intent(this, BathroomActivity.class);
         startActivity(startNewActivity);
     }
 
@@ -129,11 +149,10 @@ public class WaterActivity extends Activity {
 
         List<String> kitchen = new ArrayList<String>();
         kitchen.add("Diswashing");
-        kitchen.add("Cooking");
-        kitchen.add("Consumption");
+        kitchen.add("Meals");
 
         List<String> laundry = new ArrayList<String>();
-        laundry.add("Dishwasher");
+        laundry.add("Washer");
 
 
         listDataChild.put(listDataHeader.get(0), kitchen); // Header, Child data

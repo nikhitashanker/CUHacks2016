@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "666113072549",
+    "firebase_url": "https://project-6970500224315768028.firebaseio.com",
+    "project_id": "project-6970500224315768028",
+    "storage_bucket": "project-6970500224315768028.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666113072549:android:32a4f87dae15b813",
+        "android_client_info": {
+          "package_name": "nikhi.mysecondapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666113072549-md69omvi284ulpk6k8ol5llfe9514btt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf4kNN5_I336jMt-EN0PcsloZvP2jueVQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

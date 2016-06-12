@@ -110,15 +110,17 @@ public class WaterActivity extends Activity {
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding child data
-        listDataHeader.add("Bathroom");
-        listDataHeader.add("Gardening");
         listDataHeader.add("Kitchen");
+        listDataHeader.add("Gardening");
+        listDataHeader.add("Bathroom");
+        listDataHeader.add("Laundry");
 
         // Adding child data
         List<String> bathroom = new ArrayList<String>();
-        bathroom.add("Showering");
-        bathroom.add("Flushing the toilet");
-        bathroom.add("Brushing your teeth");
+        bathroom.add("Showers");
+        bathroom.add("Toilet");
+        bathroom.add("Brushing Teeth");
+        bathroom.add("Shaving");
 
 
         List<String> gardening = new ArrayList<String>();
@@ -127,9 +129,16 @@ public class WaterActivity extends Activity {
 
         List<String> kitchen = new ArrayList<String>();
         kitchen.add("Diswashing");
+        kitchen.add("Cooking");
+        kitchen.add("Consumption");
 
-        listDataChild.put(listDataHeader.get(0), bathroom); // Header, Child data
+        List<String> laundry = new ArrayList<String>();
+        laundry.add("Dishwasher");
+
+
+        listDataChild.put(listDataHeader.get(0), kitchen); // Header, Child data
         listDataChild.put(listDataHeader.get(1), gardening);
-        listDataChild.put(listDataHeader.get(2), kitchen);
+        listDataChild.put(listDataHeader.get(2), bathroom);
+        listDataChild.put(listDataHeader.get(3), laundry);
     }
 }

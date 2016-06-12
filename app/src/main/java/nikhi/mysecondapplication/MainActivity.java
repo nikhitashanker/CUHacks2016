@@ -1,51 +1,77 @@
 package nikhi.mysecondapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
     static String TAG = "Main Activity";
-    DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
-    
+    private DatabaseReference myRef;
+
+
     EditText email;
     String email_str = "";
     String pass_str = "";
     EditText password;
     Button create;
+    Firebase ref;
     boolean accountCreated = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        myRef = FirebaseDatabase.getInstance().getReference();
+        myRef.child("users").setValue("bob");
         setContentView(R.layout.activity_main);
         Log.d("myRef", myRef.toString());
         Log.i(TAG, "Application is running");
         email = (EditText) findViewById(R.id.editText_email);
         password = (EditText) findViewById(R.id.editText_password);
         create = (Button) findViewById(R.id.button_caccount);
+        Firebase.setAndroidContext(this);
+       ref = new Firebase("https://project-6970500224315768028.firebaseio.com/");
+
+
         
-       
-        
-        if (accountCreated == false) {
+        //if (accountCreated == false) {
             accountCreated = true;
             create.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    
+                    System.out.println("Hi");
+
+
                     email_str = email.getText().toString();
                     pass_str = password.getText().toString();
-                    myRef.push().setValue(email_str);
-                    Log.d("hi", email_str);
-                    myRef.child(email_str).setValue(pass_str);
+                    ref.createUser(email_str, pass_str, new Firebase.ValueResultHandler<Map<String, Object>>() {
+                        @Override
+                        public void onSuccess(Map<String, Object> result) {
+                        }
+                        @Override
+                        public void onError(FirebaseError firebaseError) {
+                        }
+                    });
+                    //ref.authWithPassword(email_str, pass_str, new Firebase.ValueResultHandler<Map<String, Object>>()
+                    
+
                 }
             });
-        }
+        //}
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         //GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -59,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 //.build();
         
         
-/**
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -108,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    */
     }
     
 }

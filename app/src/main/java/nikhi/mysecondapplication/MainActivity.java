@@ -14,34 +14,101 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.firebase.client.Firebase;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     static String TAG = "Main Activity";
-    private DatabaseReference myRef;
 
 
     EditText email;
     String email_str = "";
+    String nodot = "";
     String pass_str = "";
+
     EditText password;
+    EditText email2;
+    EditText password2;
     Button create;
     Firebase ref;
+    User newUser;
     boolean accountCreated = false;
+    Button signin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        myRef = FirebaseDatabase.getInstance().getReference();
+        Firebase.setAndroidContext(this);
+        ref = new Firebase("https://project-6970500224315768028.firebaseio.com/");
+        //This is a trial
+        Firebase usersRef = ref.child("users");
+
+        //create new user class with hours etc.
+
 
         setContentView(R.layout.activity_main);
-        Log.d("myRef", myRef.toString());
+        Log.d("myRef", ref.toString());
         Log.i(TAG, "Application is running");
         email = (EditText) findViewById(R.id.editText_email);
         password = (EditText) findViewById(R.id.editText_password);
         create = (Button) findViewById(R.id.button_caccount);
-        Firebase.setAndroidContext(this);
-       ref = new Firebase("https://project-6970500224315768028.firebaseio.com/");
+        email2 = (EditText) findViewById(R.id.email2);
+        password2 = (EditText) findViewById(R.id.password2);
+        signin = (Button) findViewById(R.id.signin);
+
+
+        //if (accountCreated == false) {
+            accountCreated = true;
+            create.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println("Hi");
+
+                    email_str = email.getText().toString();
+                    pass_str = password.getText().toString();
+
+                    System.out.println(email_str+pass_str);
+
+                    Firebase usersRef = ref.child("users");
+                    Map<String, String> newMap = new HashMap<String, String>();
+                    newMap.put("username", email_str);
+                    newMap.put("password", pass_str);
+                    Map<String, Map<String, String>> users = new HashMap<String, Map<String, String>>();
+                    //users.put("newUser", newMap);
+                    //usersRef.setValue(users);
+
+                    nodot = email_str.substring(0, email_str.length() - 5);
+                    Firebase newRef = ref.child("users").child(nodot);
+                    newUser = new User();
+                    newUser.setUserEmailandPass(email_str, pass_str);
+                    newRef.setValue(newUser);
+                    System.out.print("initial" + newUser.getEmail());
+                        Log.i(TAG, "Button was clicked");
+                        newScreen(v);
+
+
+                }
+            });
+
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Hi");
+
+                String email_str2 = email2.getText().toString();
+                String pass_str2 = password2.getText().toString();
+
+                System.out.println(email_str+pass_str);
+
+
+
+                nodot = email_str2.substring(0, email_str2.length() - 5);
+                    Log.i(TAG, "Button was clicked");
+                    newScreen(v);
+
+            }
+        });
 
 
 
@@ -73,19 +140,16 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
 
-        Button btnStart = (Button)(findViewById(R.id.btnStart));
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "Button was clicked");
-                newScreen(v);
-            }
-        });
+    public User getNewUser(){
+        System.out.println(newUser);
+        return newUser;
     }
 
     public void newScreen(View view){
         Intent startNewActivity = new Intent(this, WaterActivity.class);
+        startNewActivity.putExtra("name", nodot);
         startActivity(startNewActivity);
     }
 

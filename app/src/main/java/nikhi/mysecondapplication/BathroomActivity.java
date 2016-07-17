@@ -7,19 +7,29 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 public class BathroomActivity extends Activity {
     static String TAG = "Showering Activity";
     EditText editShower,editFaucet,editBath,editToilet ;
     int showers,baths,toiletFlushes,faucets;
+    Firebase ref;
+    String value;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bathroom);
         Log.i(TAG, "Application is running");
+        Intent i = getIntent();
+        value = i.getStringExtra("name");
 
         Button btn1 = (Button)(findViewById(R.id.showering));
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -75,22 +85,81 @@ public class BathroomActivity extends Activity {
 
     public void newShower(View view){
         editShower.setVisibility(EditText.VISIBLE);
-        showers = Integer.parseInt(editShower.getText().toString());
+        editShower.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View view, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    // Perform action on key press
+                    showers = Integer.parseInt(editShower.getText().toString());
+
+                    ref = new Firebase("https://project-6970500224315768028.firebaseio.com/users/"+value);
+// Attach an listener to read the data at our posts reference
+                    ref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot snapshot) {
+                            System.out.println("There are " + snapshot.getChildrenCount() + " blog posts");
+
+                            ref.child("showerMinutes").setValue(showers);
+
+                        }
+
+                        @Override
+                        public void onCancelled(FirebaseError firebaseError) {
+                            System.out.println("The read failed: " + firebaseError.getMessage());
+                        }
+                    });
+
+                    return true;
+                }
+                return false;
+            }
+        });
     }
+
+
 
     public void newToilet(View view){
         editToilet.setVisibility(EditText.VISIBLE);
-        toiletFlushes = Integer.parseInt(editToilet.getText().toString());
+        editToilet.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View view, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    // Perform action on key press
+                    toiletFlushes = Integer.parseInt(editToilet.getText().toString());
+
+                    ref = new Firebase("https://project-6970500224315768028.firebaseio.com/users/"+value);
+// Attach an listener to read the data at our posts reference
+                    ref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot snapshot) {
+                            System.out.println("There are " + snapshot.getChildrenCount() + " blog posts");
+                            System.out.println("Flushes " + toiletFlushes);
+                            ref.child("flushes").setValue(toiletFlushes);
+
+                        }
+
+                        @Override
+                        public void onCancelled(FirebaseError firebaseError) {
+                            System.out.println("The read failed: " + firebaseError.getMessage());
+                        }
+                    });
+
+                    return true;
+                }
+                return false;
+            }
+        });
     }
+
 
     public void newBath(View view){
         editBath.setVisibility(EditText.VISIBLE);
-        baths = Integer.parseInt(editBath.getText().toString());
     }
 
     public void newFaucet(View view){
         editFaucet.setVisibility(EditText.VISIBLE);
-        faucets = Integer.parseInt(editFaucet.getText().toString());
     }
 
 
@@ -98,6 +167,7 @@ public class BathroomActivity extends Activity {
     public void newScreen (View view)
     {
         Intent startNewActivity = new Intent(this, DashboardActivity.class);
+        startNewActivity.putExtra("name", value);
         startActivity(startNewActivity);
     }
 }

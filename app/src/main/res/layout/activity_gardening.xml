@@ -23,7 +23,8 @@
         android:hint="number of square feet"
         android:id="@+id/sqFeet"
         android:layout_gravity="center_horizontal"
-        android:background="#ffffff" />
+        android:background="#ffffff"
+        android:visibility="invisible"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

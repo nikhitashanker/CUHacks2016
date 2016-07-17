@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:text="number of loads"
+        android:hint="number of loads per week"
         android:id="@+id/editTextLaundry"
         android:layout_gravity="center_horizontal"
         android:visibility="invisible"/>

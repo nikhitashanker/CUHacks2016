@@ -5,13 +5,7 @@
     android:weightSum="1"
     android:backgroundTint="#dff4fa">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gallons Used"
-        android:id="@+id/buttonGallonUsed"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/accent_material_dark" />
+
 
     <Button
         android:layout_width="match_parent"

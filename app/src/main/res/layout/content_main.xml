@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/dropsofwater"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="nikhi.mysecondapplication.MainActivity"
     tools:showIn="@layout/activity_main">
@@ -17,17 +18,6 @@
         android:layout_height="wrap_content"
         android:text="Hello World!"
         android:id="@+id/textView" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Start"
-        android:id="@+id/btnStart"
-        android:onClick="newScreen"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="134dp"
-        android:background="@drawable/dropsofwater" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -56,5 +46,42 @@
         android:id="@+id/button_caccount"
         android:layout_below="@+id/editText_password"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="email"
+        android:ems="10"
+        android:id="@+id/email2"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/email2"
+        android:layout_alignStart="@+id/editText_password" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="password"
+        android:ems="10"
+        android:id="@+id/password2"
+        android:layout_below="@+id/email2"
+        android:layout_alignLeft="@+id/email2"
+        android:layout_alignStart="@+id/email2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign-in"
+        android:id="@+id/signin"
+        android:layout_below="@+id/password2"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/email2"
+        android:layout_centerHorizontal="true"></LinearLayout>
     android:clickable="true" />
 </RelativeLayout>

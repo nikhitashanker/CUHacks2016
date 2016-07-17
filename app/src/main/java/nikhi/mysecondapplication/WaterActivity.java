@@ -21,11 +21,14 @@ public class WaterActivity extends Activity {
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    String value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_water);
+        Intent i = getIntent();
+        value = i.getStringExtra("name");
 
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
@@ -57,7 +60,7 @@ public class WaterActivity extends Activity {
                     bathroomActivity(v);
                 }
                 if (groupPosition == 3) {
-                    bathroomActivity(v);
+                    laundryActivity(v);
                 }
                 return false;
             }
@@ -111,17 +114,25 @@ public class WaterActivity extends Activity {
 
     public void userScreen(View view){
         Intent startNewActivity = new Intent(this, UserActivity.class);
+        startNewActivity.putExtra("name", value);
         startActivity(startNewActivity);
     }
     public void gardeningScreen(View view){
         Intent startNewActivity = new Intent(this, GardeningActivity.class);
+        startNewActivity.putExtra("name", value);
         startActivity(startNewActivity);
     }
     public void bathroomActivity(View view){
         Intent startNewActivity = new Intent(this, BathroomActivity.class);
+        startNewActivity.putExtra("name", value);
         startActivity(startNewActivity);
     }
 
+    public void laundryActivity(View view){
+        Intent startNewActivity = new Intent(this, LaundryActivity.class);
+        startNewActivity.putExtra("name", value);
+        startActivity(startNewActivity);
+    }
     /*
      * Preparing the list data
      */

@@ -29,7 +29,8 @@
         android:text="Faucet"
         android:id="@+id/faucet"
         android:layout_gravity="center_horizontal"
-        android:background="#b1deea" />
+        android:background="#b1deea"
+       />
 
     <EditText
         android:layout_width="match_parent"
@@ -38,7 +39,8 @@
         android:hint="Number of minutes in the faucet"
         android:ems="10"
         android:id="@+id/editTextFaucet"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="match_parent"
@@ -46,7 +48,8 @@
         android:text="Bath"
         android:id="@+id/bath"
         android:layout_gravity="center_horizontal"
-        android:background="#b1deea" />
+        android:background="#b1deea"
+        />
 
     <EditText
         android:layout_width="match_parent"
@@ -55,7 +58,8 @@
         android:ems="10"
         android:hint="Number of minutes in the bath"
         android:id="@+id/editTextBath"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="match_parent"
